@@ -23,11 +23,10 @@ Search for transactions based on specific criteria.
 Add new transactions to the list.
 ## Dependencies
 This project relies on the following dependencies:
-
-    * React: The core React library for building user interfaces.
-    * react-dom: React package for working with the DOM.
-    *react-scripts: Configuration and scripts for Create React App.
-    *json-server: A full fake REST API server for mocking and prototyping.
+1. React: The core React library for building user interfaces.
+2. react-dom: React package for working with the DOM.
+3. react-scripts: Configuration and scripts for Create React App.
+4. json-server: A full fake REST API server for mocking and prototyping.
 
 These dependencies are automatically installed when you run ```npm install```
 # License 
