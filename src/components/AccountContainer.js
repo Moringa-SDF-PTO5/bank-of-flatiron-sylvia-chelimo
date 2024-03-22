@@ -13,7 +13,7 @@ function AccountContainer() {
 
   const fetchTransactions = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/transactions ${query}`);
+      const response = await fetch(`http://localhost:3000/transactions?q=${query}`);
       if (!response.ok) {
         throw new Error("Failed to fetch transactions");
       }
@@ -24,8 +24,8 @@ function AccountContainer() {
     }
   };
 
-  const handleSearch = (e) => {
-    setQuery(e.target.value);
+  const handleSearch = (searchQuery) => {
+    setQuery(searchQuery);
   };
 
   return (
