@@ -6,6 +6,8 @@ import AddTransactionForm from "./AddTransactionForm";
 function AccountContainer() {
   const [transactions, setTransactions] = useState([]);
   const [query, setQuery] = useState("");
+  const [filteredTransactions, setFilteredTransactions] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     fetchTransactions();
@@ -13,7 +15,7 @@ function AccountContainer() {
 
   const fetchTransactions = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/transactions?q=${query}`);
+      const response = await fetch(`http://localhost:3000/transactions ${query}`);
       if (!response.ok) {
         throw new Error("Failed to fetch transactions");
       }
@@ -24,15 +26,23 @@ function AccountContainer() {
     }
   };
 
-  const handleSearch = (searchQuery) => {
-    setQuery(searchQuery);
+  const handleSearch = (searchTerm) => {
+    setSearchTerm(searchTerm);
+    filterTransactions(searchTerm);
+  };
+
+  const filterTransactions = (searchTerm) => {
+    const filtered = transactions.filter(transaction =>
+      transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredTransactions(filtered);
   };
 
   return (
     <div>
       <Search handleSearch={handleSearch} />
       <AddTransactionForm />
-      <TransactionsList transactions={transactions} />
+      <TransactionsList transactions={filteredTransactions} />
     </div>
   );
 }
