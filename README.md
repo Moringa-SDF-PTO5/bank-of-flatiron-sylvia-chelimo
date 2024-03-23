@@ -1,7 +1,7 @@
 # Bank Of Flatiron
 This project is a transaction management application built with React. It allows users to manage their transactions, search for specific past transactions, and add new transactions.
 
-You can get the project through:
+You can get the project through: https://master--bankofflatironsylvia-chelimo.netlify.app/
 
 ## Getting started
 ### Installation
