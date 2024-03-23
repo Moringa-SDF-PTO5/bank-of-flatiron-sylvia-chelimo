@@ -5,17 +5,16 @@ import AddTransactionForm from "./AddTransactionForm";
 
 function AccountContainer() {
   const [transactions, setTransactions] = useState([]);
-  const [query, setQuery] = useState("");
   const [filteredTransactions, setFilteredTransactions] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     fetchTransactions();
-  }, [query]);
+  }, );
 
   const fetchTransactions = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/transactions ${query}`);
+      const response = await fetch(`http://localhost:3000/transactions`);
       if (!response.ok) {
         throw new Error("Failed to fetch transactions");
       }

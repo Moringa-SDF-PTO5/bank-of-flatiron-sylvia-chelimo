@@ -132,6 +132,13 @@
       "description": "bolt fee",
       "category": "transportation",
       "amount": "300"
+    },
+    {
+      "id": "4d31",
+      "date": "2024-03-08",
+      "description": "My Birthday",
+      "category": "Entertainment",
+      "amount": "400"
     }
   ]
 }
