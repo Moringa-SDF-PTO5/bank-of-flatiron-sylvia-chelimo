@@ -5,12 +5,11 @@ import AddTransactionForm from "./AddTransactionForm";
 
 function AccountContainer() {
   const [transactions, setTransactions] = useState([]);
-  const [filteredTransactions, setFilteredTransactions] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     fetchTransactions();
-  }, );
+  }, []);
 
   const fetchTransactions = async () => {
     try {
@@ -27,15 +26,11 @@ function AccountContainer() {
 
   const handleSearch = (searchTerm) => {
     setSearchTerm(searchTerm);
-    filterTransactions(searchTerm);
   };
 
-  const filterTransactions = (searchTerm) => {
-    const filtered = transactions.filter(transaction =>
-      transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredTransactions(filtered);
-  };
+  const filteredTransactions = transactions.filter(transaction =>
+    transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div>
